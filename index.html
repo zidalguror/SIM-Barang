@@ -22,6 +22,7 @@
     <main>
         <section id="inventaris">
             <h2>Tabel Inventaris Barang</h2>
+            <input type="search" id="cari" placeholder="Cari barang..." aria-label="Cari barang">
         <div class="table-wrap">
             <table>
                 <thead>
@@ -62,7 +63,7 @@
 
         <section id="input-barang">
             <h2>Formulir Input Barang</h2>
-            <form action="#" method="post" class="form-barang">
+            <form action="#" method="post" class="form-barang" id="form-barang">
                 <p>
                     <label for="kode">Kode Barang:</label><br>
                     <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-004" required>
@@ -70,6 +71,7 @@
                 <p>
                     <label for="nama">Nama Barang:</label><br>
                     <input type="text" id="nama" name="nama" placeholder="Masukkan nama barang" required>
+                    <small id="err-kode" class="error"></small>
                 </p>
                 <p>
                     <label for="kategori">Kategori:</label><br>
@@ -83,6 +85,7 @@
                 <p>
                     <label for="jumlah">Jumlah:</label><br>
                     <input type="number" id="jumlah" name="jumlah" placeholder="Masukkan jumlah" min="1" required>
+                    <small id="err-jumlah" class="error"></small>
                 </p>
                 <p>
                     <label for="kondisi">Kondisi:</label><br>
@@ -101,5 +104,8 @@
     <footer>
         <p>&copy; 2026 SIM-Barang - Muhammad Zidal Muttaqin (062530801587)</p>
     </footer>
+
+    <div id="toast" class="toast" role="status"></div>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIM-Barang</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -21,6 +22,7 @@
     <main>
         <section id="inventaris">
             <h2>Tabel Inventaris Barang</h2>
+        <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
@@ -55,11 +57,12 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
         </section>
 
         <section id="input-barang">
             <h2>Formulir Input Barang</h2>
-            <form action="#" method="post">
+            <form action="#" method="post" class="form-barang">
                 <p>
                     <label for="kode">Kode Barang:</label><br>
                     <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-004" required>
@@ -90,7 +93,7 @@
                         <option value="rusak-berat">Rusak Berat</option>
                     </select>
                 </p>
-                <button type="submit">Simpan</button>
+                <button type="submit" class="btn-simpan">Simpan</button>
             </form>
         </section>
     </main>

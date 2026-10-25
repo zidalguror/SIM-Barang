@@ -29,7 +29,9 @@ form.addEventListener("submit", function (event) {
 
     if (valid) {
         tampilkanToast("Data barang berhasil divalidasi!");
-        form.reset();
+        setTimeout(function () {
+            form.submit();
+        }, 800);
     }
 });
 

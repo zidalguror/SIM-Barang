@@ -63,7 +63,7 @@
 
         <section id="input-barang">
             <h2>Formulir Input Barang</h2>
-            <form action="#" method="post" class="form-barang" id="form-barang">
+            <form action="simpan.php" method="post" class="form-barang" id="form-barang">
                 <p>
                     <label for="kode">Kode Barang:</label><br>
                     <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-004" required>
@@ -87,6 +87,8 @@
                     <input type="number" id="jumlah" name="jumlah" placeholder="Masukkan jumlah" min="1" required>
                     <small id="err-jumlah" class="error"></small>
                 </p>
+                    <label for="harga">Harga Satuan (Rp):</label><br>
+                    <input type="number" id="harga" name="harga" placeholder="Contoh: 5000000" min="0" required>
                 <p>
                     <label for="kondisi">Kondisi:</label><br>
                     <select id="kondisi" name="kondisi" required>

@@ -1,3 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit;
+}
+require_once "Barang.php";
+
+$daftarBarang = [
+    new Barang("BRG-001", "Laptop", 10, "Elektronik", "Baik"),
+    new Barang("BRG-002", "Proyektor", 3, "Elektronik", "Baik"),
+    new Barang("BRG-003", "Kursi Lab", 25, "Perabot", "Rusak Ringan"),
+];
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,6 +24,7 @@
     <header>
         <h1>SIM-Barang</h1>
         <p>Sistem Informasi Manajemen Barang Laboratorium dan Jurusan</p>
+        <p>Masuk sebagai: <?= htmlspecialchars($_SESSION["username"]) ?> | <a href="logout.php">Logout</a></p>
     </header>
 
     <nav>
@@ -35,27 +50,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>BRG-001</td>
-                        <td>Laptop</td>
-                        <td>Elektronik</td>
-                        <td>10</td>
-                        <td>Baik</td>
-                    </tr>
-                    <tr>
-                        <td>BRG-002</td>
-                        <td>Proyektor</td>
-                        <td>Elektronik</td>
-                        <td>3</td>
-                        <td>Baik</td>
-                    </tr>
-                    <tr>
-                        <td>BRG-003</td>
-                        <td>Kursi Lab</td>
-                        <td>Perabot</td>
-                        <td>25</td>
-                        <td>Rusak Ringan</td>
-                    </tr>
+                    <?php foreach ($daftarBarang as $barang): ?>
+                        <?= $barang->tampilkanBaris() ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

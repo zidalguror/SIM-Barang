@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit;
+}
+require_once "Barang.php";
+
 function hitungTotalAset($jumlah, $harga) {
     return $jumlah * $harga;
 }
@@ -8,7 +15,7 @@ function rupiah($angka) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: index.html");
+    header("Location: index.php");
     exit;
 }
 
@@ -34,6 +41,7 @@ if ($harga < 0) {
 }
 
 $total = hitungTotalAset($jumlah, $harga);
+$barang = new Barang($kode, $nama, $jumlah, $kategori, $kondisi);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -60,6 +68,7 @@ $total = hitungTotalAset($jumlah, $harga);
                 </ul>
             <?php else: ?>
                 <h2>Data Berhasil Diproses</h2>
+                <p><strong>Barang:</strong> <?= $barang->tampilkanInfo() ?></p>
                 <div class="table-wrap">
                     <table>
                         <thead>
@@ -77,7 +86,7 @@ $total = hitungTotalAset($jumlah, $harga);
                     </table>
                 </div>
             <?php endif; ?>
-            <p><a href="index.html">&larr; Kembali ke formulir</a></p>
+            <p><a href="index.php">&larr; Kembali ke formulir</a></p>
         </section>
     </main>
 

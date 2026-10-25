@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM-Barang</title>
+</head>
+<body>
+    <header>
+        <h1>SIM-Barang</h1>
+        <p>Sistem Informasi Manajemen Barang Laboratorium dan Jurusan</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inventaris">Inventaris Barang</a></li>
+            <li><a href="#input-barang">Input Barang</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="inventaris">
+            <h2>Tabel Inventaris Barang</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode</th>
+                        <th>Nama Barang</th>
+                        <th>Kategori</th>
+                        <th>Jumlah</th>
+                        <th>Kondisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BRG-001</td>
+                        <td>Laptop</td>
+                        <td>Elektronik</td>
+                        <td>10</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>BRG-002</td>
+                        <td>Proyektor</td>
+                        <td>Elektronik</td>
+                        <td>3</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>BRG-003</td>
+                        <td>Kursi Lab</td>
+                        <td>Perabot</td>
+                        <td>25</td>
+                        <td>Rusak Ringan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="input-barang">
+            <h2>Formulir Input Barang</h2>
+            <form action="#" method="post">
+                <p>
+                    <label for="kode">Kode Barang:</label><br>
+                    <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-004" required>
+                </p>
+                <p>
+                    <label for="nama">Nama Barang:</label><br>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama barang" required>
+                </p>
+                <p>
+                    <label for="kategori">Kategori:</label><br>
+                    <select id="kategori" name="kategori" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="elektronik">Elektronik</option>
+                        <option value="perabot">Perabot</option>
+                        <option value="alat-lab">Alat Laboratorium</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="jumlah">Jumlah:</label><br>
+                    <input type="number" id="jumlah" name="jumlah" placeholder="Masukkan jumlah" min="1" required>
+                </p>
+                <p>
+                    <label for="kondisi">Kondisi:</label><br>
+                    <select id="kondisi" name="kondisi" required>
+                        <option value="">-- Pilih Kondisi --</option>
+                        <option value="baik">Baik</option>
+                        <option value="rusak-ringan">Rusak Ringan</option>
+                        <option value="rusak-berat">Rusak Berat</option>
+                    </select>
+                </p>
+                <button type="submit">Simpan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIM-Barang - Muhammad Zidal Muttaqin (062530801587)</p>
+    </footer>
+</body>
+</html>

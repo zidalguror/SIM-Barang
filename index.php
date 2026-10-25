@@ -5,12 +5,24 @@ if (!isset($_SESSION["username"])) {
     exit;
 }
 require_once "Barang.php";
+require_once "koneksi.php";
 
-$daftarBarang = [
-    new Barang("BRG-001", "Laptop", 10, "Elektronik", "Baik"),
-    new Barang("BRG-002", "Proyektor", 3, "Elektronik", "Baik"),
-    new Barang("BRG-003", "Kursi Lab", 25, "Perabot", "Rusak Ringan"),
-];
+$sql = "SELECT b.kode_barang, b.nama_barang, b.jumlah, k.nama_kategori, b.kondisi
+        FROM barang b
+        JOIN kategori k ON b.id_kategori = k.id_kategori
+        ORDER BY b.id_barang";
+$hasil = $pdo->query($sql);
+
+$daftarBarang = [];
+foreach ($hasil as $row) {
+    $daftarBarang[] = new Barang(
+        $row["kode_barang"],
+        $row["nama_barang"],
+        (int) $row["jumlah"],
+        $row["nama_kategori"],
+        $row["kondisi"]
+    );
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
